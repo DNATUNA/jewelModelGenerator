@@ -46,7 +46,7 @@ int main(int argc, char** argv)
         exit(4);
     }
     generator.setImage(strImageName);
-    fprintf(stdout, "%s\n", strImageName.c_str());
+
     //################################ generating an edge image ################################
     int nETFsize = 4;
     int nETFiteration = 4;
