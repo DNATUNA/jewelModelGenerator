@@ -25,7 +25,7 @@ class dwETF
 	imatrix	*	m_pIMG;
 public:
 	dwETF() { m_pSrcImage = NULL; m_pETF = NULL; m_pLIC = NULL; m_pIMG = NULL; };
-	dwETF(IplImage * pImage) { setSourceImage(pImage);};
+	dwETF(IplImage * pImage) { m_pSrcImage = NULL; m_pETF = NULL; m_pLIC = NULL; m_pIMG = NULL; setSourceImage(pImage);};
 	~dwETF();
 
 	void		setSourceImage(IplImage * pImage);

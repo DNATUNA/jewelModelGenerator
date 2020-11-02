@@ -50,11 +50,8 @@ int main(int argc, char** argv)
     //################################ generating an edge image ################################
     int nETFsize = 4;
     int nETFiteration = 4;
-    fprintf(stdout, "OK...0\n");
     dwETF etf(pSourceImage);
-    fprintf(stdout, "OK...1\n");
-    etf.smooth(nETFsize, nETFiteration);
-    fprintf(stdout, "ok...2\n");
+    etf.smooth(nETFsize, nETFiteration);;
 
     float fTao = 0.99f;
     float fThreshold = 1.f;
@@ -66,12 +63,12 @@ int main(int argc, char** argv)
         exit(5);
     }
     generator.setEdge(pEdgeImage);
-    fprintf(stdout, "IMAGE EDGEING GOOD!!!!!!\n");
+
     //################################ setting a maske image ################################
     strImageName.erase(strImageName.end() - 4, strImageName.end());
     strImageName += "_mask.jpg";
     generator.setMask(strImageName);
-    fprintf(stdout, "IMAGE MASKING GOOD!!!!!\n");
+
     //################################ distance transform ################################
     generator.generateSeeds();
     

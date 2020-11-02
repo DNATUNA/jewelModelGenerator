@@ -40,18 +40,17 @@ void dwETF::setSourceImage(IplImage * pImage)
 {
 	dwColors color;
 	
-	if (m_pSrcImage) {
-		fprintf(stdout, "keke\n");
+	if (m_pSrcImage)
 		cvReleaseImage(&m_pSrcImage);
-	}
+
 		
 
 	m_pSrcImage = pImage;
 	m_nSrcWidth = m_pSrcImage->width;
 	m_nSrcHeight = m_pSrcImage->height;
-	fprintf(stdout, "SET VARIABLE\n");
+
 	m_pIMG = new imatrix(m_nSrcWidth, m_nSrcHeight);
-	fprintf(stdout, "SET MATRIX\n");
+
 	for (int j = 0; j < m_nSrcHeight; j++)
 	{
 		for (int i = 0; i < m_nSrcWidth; i++)
@@ -72,7 +71,7 @@ void dwETF::setSourceImage(IplImage * pImage)
 			(*m_pIMG)[i][j] = (unsigned char)(nLuminance);
 		}
 	}
-	fprintf(stdout, "LOOP OK..!\n");
+
 	if (m_pETF)
 	{
 		delete m_pETF;
