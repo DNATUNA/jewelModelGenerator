@@ -1,7 +1,7 @@
 version: "3.7"
 services:
-  jewelGenerator:
-    container_name: jewelGenerator
+  jewelgenerator:
+    container_name: jewelgenerator
     build: ./docker
     volumes:
       - ./app:/usr/src/app
