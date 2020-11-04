@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  jewelGenerator:
+    container_name: jewelGenerator
+    build: ./docker
+    volumes:
+      - ./app:/usr/src/app
+    command:
+      - /bin/bash
+      - -c
+      - "./docker/docker-entrypoint.sh"
