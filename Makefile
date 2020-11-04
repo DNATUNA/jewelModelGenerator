@@ -2,8 +2,8 @@
 
 CXX = g++
 
-INC_DIR = /home/dnatuna/projects/ubuntuJewely/header
-SRC_DIR = /home/dnatuna/projects/ubuntuJewely/src
+INC_DIR = /home/dnatuna/projects/jewelModelGenerator/header
+SRC_DIR = /home/dnatuna/projects/jewelModelGenerator/src
 
 OPENCV = `pkg-config opencv --cflags --libs`
 LIBS = -lglut -lGLU -lGL $(OPENCV)
