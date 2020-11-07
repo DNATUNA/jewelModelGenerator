@@ -4,9 +4,10 @@ services:
     build: .
     container_name: jewelgenerator
     environment:
-      - DISPLAY=unix$DISPLAY
+      # IN LINUX - DISPLAY=unix$DISPLAY
+      - DISPLAY=$IP:0
     env_file:
-      - ./docker/.env
+      - ./file/.env
     volumes:
       - ./file:/root/jewelModelGenerator/file
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
