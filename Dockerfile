@@ -20,16 +20,16 @@ RUN cd ~ && git clone https://github.com/DNATUNA/jewelModelGenerator.git
 RUN cd ~/jewelModelGenerator && git lfs pull
 
 RUN echo "build opencv..."
-RUN cd ~/jewelModelGenerator && unzip opencv.zip
+RUN cd ~/jewelModelGenerator && unzip opencv.zip && ls
 
 RUN echo "cmake..."
-RUN mkdir ~/jewelModelGenerator/opencv/opencv-3.4.7/build && cd ~/jewelModelGenerator/opencv/opencv-3.4.7/build && cmake -D CMAKE_BUILD_TYPE=DEBUG -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=OFF -D WITH_IPP=OFF -D WITH_1394=OFF -D BUILD_WITH_DEBUG_INFO=OFF -D BUILD_DOCS=OFF -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D WITH_QT=ON -D WITH_GTK=OFF -D WITH_OPENGL=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.7/modules -D WITH_V4L=ON -D WITH_FFMPEG=ON -D WITH_XINE=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D OPENCV_GENERATE_PKGCONFIG=ON ..
+RUN mkdir ~/jewelModelGenerator/opencv-3.4.7/build && cd ~/jewelModelGenerator/opencv-3.4.7/build && cmake -D CMAKE_BUILD_TYPE=DEBUG -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=OFF -D WITH_IPP=OFF -D WITH_1394=OFF -D BUILD_WITH_DEBUG_INFO=OFF -D BUILD_DOCS=OFF -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D WITH_QT=ON -D WITH_GTK=OFF -D WITH_OPENGL=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.7/modules -D WITH_V4L=ON -D WITH_FFMPEG=ON -D WITH_XINE=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D OPENCV_GENERATE_PKGCONFIG=ON ..
 
 RUN echo "make -j..."
-RUN cd ~/jewelModelGenerator/opencv/opencv-3.4.7/build && make -j"$(nproc)"
+RUN cd ~/jewelModelGenerator/opencv-3.4.7/build && make -j"$(nproc)"
 
 RUN echo "install opencv..."
-RUN cd ~/jewelModelGenerator/opencv/opencv-3.4.7/build && make install
+RUN cd ~/jewelModelGenerator/opencv-3.4.7/build && make install
 RUN echo pkg-config --modversion opencv
 RUN echo "Success Install opencv3.4.7!!!"
 
@@ -37,5 +37,10 @@ RUN echo "Start Install opengl!!!"
 RUN apt-get install -y build-essential \
     freeglut3-dev libglu1-mesa-dev mesa-common-dev
 RUN echo "Success Install opengl!!!"
+
+RUN echo "COPY FILES"
+
+COPY ./file /root/jewelModelGenerator/file
+COPY ./docker /root/jewelModelGenrator/docker
 
 CMD /bin/bash
