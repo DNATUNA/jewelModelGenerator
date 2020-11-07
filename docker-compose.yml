@@ -14,7 +14,3 @@ services:
       - /bin/bash
       - -c
       - '/root/jewelModelGenerator/file/docker-entrypoint.sh'
-      # - 'echo ./file/"${fileName}".jpeg && cd /root/jewelModelGenerator && ls file && ./jewel ./file/"${fileName}".jpeg ./file/"${fileName}".stl'
-      
-# sudo docker run --env DISPLAY=unix$DISPLAY --env fileName=A-Len -v /home/dnatuna/projects/jewelModelGenerator/file:/root/jewelModelGenerator/file -v /tmp/.X11-unix:/tmp/.X11-unix:ro jewelmodelgenerator_jewelgenerator /bin/bash -c 'ls /root/jewelModelGenerator/file && cd /root/jewelModelGenerator && ./jewel ./file/"$fileName".jpeg ./file/"$fileName".stl'
-
