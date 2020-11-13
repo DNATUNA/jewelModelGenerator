@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   jewelgenerator:
-    build: .
+    build: ./jewelModelGenerator
     container_name: jewelgenerator
     environment:
       # IN LINUX - DISPLAY=unix$DISPLAY
@@ -9,7 +9,7 @@ services:
     env_file:
       - ./file/.env
     volumes:
-      - ./file:/root/jewelModelGenerator/file
+      - ./jewelModelGenerator/file:/root/jewelModelGenerator/file
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     command:
       - /bin/bash
