@@ -1,2 +1,8 @@
 ./opencv
 .DS_Store
+
+.env
+.env.*
+!.env.sample
+
+node_modules
